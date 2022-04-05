@@ -1,5 +1,9 @@
 import unittest
+
 import selenium.webdriver.support.expected_conditions as ec
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.wait import WebDriverWait
 
 from config import browser
 from locators.timvroom_locators import ROOM_URL, ANSWER_INPUT_1, NAME_INPUT, DROPDOWN, BLUE_BOX_COUNT, \
@@ -7,9 +11,6 @@ from locators.timvroom_locators import ROOM_URL, ANSWER_INPUT_1, NAME_INPUT, DRO
     GREEN_AND_ORANGE_BOX, ANSWER_INPUT_11, ANSWER_INPUT_13, IS_HERE_ELEMENT, PURPLE_BOX, PURPLE_BOX_INPUT, \
     CLICK_WAIT_LINK, CLICK_AFTER_LINK, SUBMIT_INPUT, CHECK_RESULT, ALL_TEST_CASE_CONTROL, \
     ANSWER_INPUT_8
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.ui import Select
 
 
 class SeleniumCases(unittest.TestCase):
@@ -19,12 +20,11 @@ class SeleniumCases(unittest.TestCase):
         cls.driver.get(ROOM_URL)
 
     def test_case_1(self):
-        """ Grab page title and place title text in answer slot #1"""
-
+        """ Grab page title and place title text in answer slot #1 """
         title_input = self.driver.find_element(*ANSWER_INPUT_1)
-        title_input.send_keys("Selenium Playground")
+        title_input.send_keys(self.driver.title)
 
-        self.assertEqual("Selenium Playground", title_input.get_attribute("value"))
+        self.assertEqual(self.driver.title, title_input.get_attribute("value"))
 
     def test_case_2(self):
         """ Fill out name section of form to be Kilgore Trout """
@@ -175,8 +175,6 @@ class SeleniumCases(unittest.TestCase):
         check_result.click()
 
         all_cases = self.driver.find_elements(*ALL_TEST_CASE_CONTROL)
-
-        print(len(all_cases))
 
         self.assertEqual(0, len(all_cases))
 
