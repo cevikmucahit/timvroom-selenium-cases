@@ -1,0 +1,26 @@
+from selenium.webdriver.common.by import By
+
+ROOM_URL = "http://timvroom.com/selenium/playground/"
+ANSWER_INPUT_1 = (By.ID, "answer1")
+ANSWER_INPUT_4 = (By.ID, "answer4")
+ANSWER_INPUT_6 = (By.ID, "answer6")
+ANSWER_INPUT_8 = (By.ID, "answer8")
+ANSWER_INPUT_10 = (By.ID, "answer10")
+ANSWER_INPUT_11 = (By.ID, "answer11")
+ANSWER_INPUT_13 = (By.ID, "answer13")
+PURPLE_BOX_INPUT = (By.ID, "answer14")
+NAME_INPUT = (By.ID, "name")
+SUBMIT_INPUT = (By.ID, "submitbutton")
+CHECK_RESULT = (By.ID, "checkresults")
+RED_BOX = (By.ID, "redbox")
+PURPLE_BOX = (By.ID, "purplebox")
+GREEN_AND_ORANGE_BOX = (By.CSS_SELECTOR, "#greenbox, #orangebox")
+BLUE_BOX_COUNT = (By.CLASS_NAME, "bluebox")
+DROPDOWN = (By.ID, "occupation")
+LINK_CLICK = (By.CSS_SELECTOR, "[onclick='link_clicked();return false']")
+RADIO_BUTTON = (By.CSS_SELECTOR, "[value='wrotebook']")
+IS_HERE_ELEMENT = (By.ID, "ishere")
+CLICK_WAIT_LINK = (By.CSS_SELECTOR, "[onclick='show_new_link_after_wait();return false;']")
+CLICK_AFTER_LINK = (By.CSS_SELECTOR, "[onclick='click_after_wait();return false;']")
+ALL_TEST_CASE_CONTROL = (By.CSS_SELECTOR, ".ok.fail")
+
